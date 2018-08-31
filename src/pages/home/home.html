@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            To Do List
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-input [(ngModel)]="todo" placeholder="add here the things that you need to do. swipe if you want it to be deleted or edited. " type="text"></ion-input>
+    </ion-item>
+
+    <button ion-button full (click)="add()">ADD
+    </button>
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let t of todos">
+            <ion-item>
+                {{t}}
+            </ion-item>
+
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="delete(t)">
+                    <ion-icon name="trash"></ion-icon> Delete
+                </button>
+                <button ion-button color="secondary" (click)="edit(t)">
+                    <ion-icon name="create"></ion-icon> Edit
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
